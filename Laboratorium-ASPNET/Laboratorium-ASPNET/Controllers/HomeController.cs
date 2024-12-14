@@ -12,6 +12,11 @@ public class HomeController : Controller
         _logger = logger;
     }
 
+    public enum Operator
+    {
+        Add, Mul, Sub, Div, Unknown
+    }
+
     public IActionResult Index()
     {
         return View();
@@ -32,9 +37,53 @@ public class HomeController : Controller
     {
         return View();
     }
-
-    public IActionResult Calculator()
+    
+    public IActionResult Calculator(Operator op, double? a, double? b)
     {
+        ViewBag.Op = op;
+        ViewBag.A = a;
+        ViewBag.B = b;
+
+        if (op == null)
+        {
+            ViewBag.ErrorMessage("Nieprawidłowy operator");
+        }
+        
+        if (a == null || b == null)
+        {
+            ViewBag.ErrorMessage("Nieprawidłowy parametr liczby");
+        }
+
+        switch (op)
+        {
+            case Operator.Add:
+            {
+                ViewBag.Result = a + b;
+                break;
+            }
+            case Operator.Sub:
+            {
+                ViewBag.Result = a - b;
+                break;
+            }
+            case Operator.Mul:
+            {
+                ViewBag.Result = a * b;
+                break;
+            }
+            case Operator.Div:
+            {
+                if (b == 0)
+                {
+                    ViewBag.ErrorMessage("Dzielenie przez 0 jest niedozwolone");
+                    return View("CalculatorError");
+                }
+
+                ViewBag.Result = a / b;
+                break;
+            }
+        }
+        
         return View();
     }
     

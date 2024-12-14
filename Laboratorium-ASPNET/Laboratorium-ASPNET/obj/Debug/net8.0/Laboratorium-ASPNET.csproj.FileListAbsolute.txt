@@ -226,3 +226,4 @@
 /Users/kacper.glowczyk/Desktop/ASPNET/Laboratorium-ASPNET/Laboratorium-ASPNET/Laboratorium-ASPNET/bin/Debug/net8.0/runtimes/win/lib/net7.0/System.Windows.Extensions.dll
 /Users/kacper.glowczyk/Desktop/ASPNET/Laboratorium-ASPNET/Laboratorium-ASPNET/Laboratorium-ASPNET/obj/Debug/net8.0/Laboratorium-ASPNET.csproj.AssemblyReference.cache
 /Users/kacper.glowczyk/Desktop/ASPNET/Laboratorium-ASPNET/Laboratorium-ASPNET/Laboratorium-ASPNET/obj/Debug/net8.0/Laborato.722E27F8.Up2Date
+/Users/kacper.glowczyk/Desktop/ASPNET/Laboratorium-ASPNET/Laboratorium-ASPNET/Laboratorium-ASPNET/obj/Debug/net8.0/Laboratorium-ASPNET.sourcelink.json
