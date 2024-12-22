@@ -26,6 +26,26 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/kacper.glowczyk/Desktop/ASPNET/Laboratorium-ASPNET/Laboratorium-ASPNET/Laboratorium-ASPNET
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/kacper.glowczyk/Desktop/ASPNET/Laboratorium-ASPNET/Laboratorium-ASPNET/Laboratorium-ASPNET/Views/Birth/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmlydGgvRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/kacper.glowczyk/Desktop/ASPNET/Laboratorium-ASPNET/Laboratorium-ASPNET/Laboratorium-ASPNET/Views/Birth/Form.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmlydGgvRm9ybS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/kacper.glowczyk/Desktop/ASPNET/Laboratorium-ASPNET/Laboratorium-ASPNET/Laboratorium-ASPNET/Views/Birth/Result.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmlydGgvUmVzdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/kacper.glowczyk/Desktop/ASPNET/Laboratorium-ASPNET/Laboratorium-ASPNET/Laboratorium-ASPNET/Views/Calculator/Form.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FsY3VsYXRvci9Gb3JtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/kacper.glowczyk/Desktop/ASPNET/Laboratorium-ASPNET/Laboratorium-ASPNET/Laboratorium-ASPNET/Views/Calculator/Result.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FsY3VsYXRvci9SZXN1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/kacper.glowczyk/Desktop/ASPNET/Laboratorium-ASPNET/Laboratorium-ASPNET/Laboratorium-ASPNET/Views/Home/About.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BYm91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

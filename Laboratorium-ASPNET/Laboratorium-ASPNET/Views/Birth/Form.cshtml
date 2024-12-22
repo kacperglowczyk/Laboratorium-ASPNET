@@ -1,0 +1,21 @@
+@model Laboratorium_ASPNET.Models.Birth
+
+@{
+    ViewBag.Title = "Formularz";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <h2>Formularz</h2>
+    <form asp-action="Result" method="post">
+        <div class="mb-3">
+            <label for="name" class="form-label">Imię</label>
+            <input type="text" class="form-control" id="name" name="Name" required />
+        </div>
+        <div class="mb-3">
+            <label for="birthDate" class="form-label">Data urodzin</label>
+            <input type="date" class="form-control" id="birthDate" name="BirthDate" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Wyślij</button>
+    </form>
+</div>

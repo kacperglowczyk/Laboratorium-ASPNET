@@ -1,0 +1,11 @@
+@model Laboratorium_ASPNET.Models.Birth
+
+@{
+ViewBag.Title = "Wynik";
+Layout = "_Layout";
+}
+
+<div class="container">
+    <h2>Wynik</h2>
+    <p>Cześć <strong>@Model.Name</strong>, masz <strong>@Model.CalculateAge()</strong> lat(a).</p>
+</div>
