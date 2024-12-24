@@ -1,0 +1,17 @@
+@model Laboratorium_ASPNET.Models.Computer
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Usuń komputer</h2>
+
+<p>Czy na pewno chcesz usunąć komputer?"<strong>@Model.Name</strong>"?</p>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Usuń</button>
+    <a asp-action="Index" class="btn btn-secondary">Anuluj</a>
+</form>
+

@@ -1,0 +1,33 @@
+@model Laboratorium_ASPNET.Models.Contact
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<form asp-action="Edit" method="post">
+    <div asp-validation-summary="All"></div>
+    <div>
+        <label asp-for="Name">Imię</label>
+        <input class="form-control" asp-for="Name" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Email">Email</label>
+        <input class="form-control" asp-for="Email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Subject">Temat</label>
+        <input class="form-control" asp-for="Subject" />
+        <span asp-validation-for="Subject" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Message">Wiadomość</label>
+        <textarea class="form-control" asp-for="Message"></textarea>
+        <span asp-validation-for="Message" class="text-danger"></span>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">Zapisz</button>
+    </div>
+</form>

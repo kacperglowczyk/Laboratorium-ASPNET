@@ -1,0 +1,13 @@
+@model Laboratorium_ASPNET.Models.Contact
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Szczegóły Kontaktów</h2>
+<p><strong>Imię:</strong> @Model.Name</p>
+<p><strong>Email:</strong> @Model.Email</p>
+<p><strong>Temat:</strong> @Model.Subject</p>
+<p><strong>Wiadomość:</strong> @Model.Message</p>
+<a asp-action="Index" class="btn btn-secondary">Powrót</a>

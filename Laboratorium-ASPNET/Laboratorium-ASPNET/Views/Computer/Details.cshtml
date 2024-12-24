@@ -1,0 +1,17 @@
+@model Laboratorium_ASPNET.Models.Computer
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Szczegóły komputera</h2>
+
+<p><strong>Nazwa:</strong> @Model.Name</p>
+<p><strong>Procesor:</strong> @Model.Processor</p>
+<p><strong>Pamięć RAM:</strong> @Model.Memory GB</p>
+<p><strong>Karta graficzna:</strong> @Model.Graphics</p>
+<p><strong>Producent:</strong> @Model.Maker</p>
+<p><strong>Data produkcji:</strong> @Model.ProductionDate.ToShortDateString()</p>
+
+<a asp-action="Index" class="btn btn-secondary">Powrót</a>
