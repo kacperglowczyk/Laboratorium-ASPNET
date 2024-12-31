@@ -1,33 +1,31 @@
 @model Laboratorium_ASPNET.Models.Contact
 
-@{
-    ViewBag.Title = "title";
-    Layout = "_Layout";
-}
+<form asp-action="Create" asp-controller="Contact" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
 
-<form asp-action="Create" method="post">
-    <div asp-validation-summary="All"></div>
     <div>
-        <label asp-for="Name">Imię</label>
-        <input class="form-control" asp-for="Name" />
-        <span asp-validation-for="Name" class="text-danger"></span>
+        <label asp-for="Name"></label>
+        <div>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <input class="form-control" type="text" asp-for="Name" />
     </div>
+
     <div>
-        <label asp-for="Email">Email</label>
-        <input class="form-control" asp-for="Email" />
-        <span asp-validation-for="Email" class="text-danger"></span>
+        <label asp-for="Email"></label>
+        <div>
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <input class="form-control" type="email" asp-for="Email" />
     </div>
+
     <div>
-        <label asp-for="Subject">Temat</label>
-        <input class="form-control" asp-for="Subject" />
-        <span asp-validation-for="Subject" class="text-danger"></span>
+        <label asp-for="Priority"></label>
+        <div>
+            <span asp-validation-for="Priority" class="text-danger"></span>
+        </div>
+        <select class="form-control" asp-for="Priority" asp-items="@Html.GetEnumSelectList<Priority>()"></select>
     </div>
-    <div>
-        <label asp-for="Message">Wiadomość</label>
-        <textarea class="form-control" asp-for="Message"></textarea>
-        <span asp-validation-for="Message" class="text-danger"></span>
-    </div>
-    <div>
-        <button type="submit" class="btn btn-primary">Zapisz</button>
-    </div>
+
+    <button type="submit" class="btn btn-primary">Zapisz</button>
 </form>

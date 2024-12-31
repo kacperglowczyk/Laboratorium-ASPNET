@@ -1,32 +1,37 @@
-@model Dictionary<int, Laboratorium_ASPNET.Models.Contact>
+@model IEnumerable<Laboratorium_ASPNET.Models.Contact>
 
 @{
-    ViewBag.Title = "title";
-    Layout = "_Layout";
+ViewBag.Title = "Contact List";
 }
 
-<h2>Lista Kontaktów</h2>
+<h2>Contact List</h2>
+
+<a asp-action="Create" class="btn btn-primary">Add New Contact</a>
+
 <table class="table">
     <thead>
     <tr>
-        <th>Imię</th>
+        <th>Name</th>
         <th>Email</th>
-        <th>Akcje</th>
+        <th>Phone</th>
+        <th>Priority</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
-    @foreach (var item in Model)
+    @foreach (var contact in Model)
     {
     <tr>
-        <td>@item.Value.Name</td>
-        <td>@item.Value.Email</td>
+        <td>@contact.Name</td>
+        <td>@contact.Email</td>
+        <td>@contact.Phone</td>
+        <td>@contact.Priority</td>
         <td>
-            <a asp-action="Edit" asp-route-id="@item.Key" class="btn btn-primary">Edytuj</a>
-            <a asp-action="Details" asp-route-id="@item.Key" class="btn btn-info">Szczegóły</a>
-            <a asp-action="Delete" asp-route-id="@item.Key" class="btn btn-danger">Usuń</a>
+            <a asp-action="Details" asp-route-id="@contact.Id" class="btn btn-info">Details</a>
+            <a asp-action="Edit" asp-route-id="@contact.Id" class="btn btn-warning">Edit</a>
+            <a asp-action="Delete" asp-route-id="@contact.Id" class="btn btn-danger">Delete</a>
         </td>
     </tr>
     }
     </tbody>
 </table>
-<a asp-action="Create" class="btn btn-success">Dodaj nowy kontakt</a>
