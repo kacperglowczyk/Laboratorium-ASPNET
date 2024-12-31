@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Laboratorium-ASPNET", "Laboratorium-ASPNET\Laboratorium-ASPNET.csproj", "{D2F4A369-2C51-426F-80A2-9BF360E1C418}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{F3921920-B78B-4219-8F59-CDB2B881EE9D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{D2F4A369-2C51-426F-80A2-9BF360E1C418}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2F4A369-2C51-426F-80A2-9BF360E1C418}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2F4A369-2C51-426F-80A2-9BF360E1C418}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3921920-B78B-4219-8F59-CDB2B881EE9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3921920-B78B-4219-8F59-CDB2B881EE9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3921920-B78B-4219-8F59-CDB2B881EE9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3921920-B78B-4219-8F59-CDB2B881EE9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

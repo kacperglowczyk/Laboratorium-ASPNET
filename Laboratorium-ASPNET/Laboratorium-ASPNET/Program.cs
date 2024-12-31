@@ -1,13 +1,13 @@
-using Laboratorium_ASPNET.Models;
+using Data;
+using Data.Interfaces;
+using Data.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
-
-// Lab4 added: Dependency Injection for ContactService
-builder.Services.AddSingleton<IContactService, MemoryContactService>();
-builder.Services.AddSingleton<IComputerService, MemoryComputerService>();
+builder.Services.AddDbContext<AppDbContext>();
+builder.Services.AddTransient<IContactService, EFContactService>();
 
 var app = builder.Build();
 
@@ -15,7 +15,6 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios.
     app.UseHsts();
 }
 
