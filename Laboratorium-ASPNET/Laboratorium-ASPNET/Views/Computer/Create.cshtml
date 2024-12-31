@@ -1,13 +1,14 @@
 @model Laboratorium_ASPNET.Models.Computer
 
 @{
-    ViewBag.Title = "title";
-    Layout = "_Layout";
+ViewBag.Title = "Dodaj/Edytuj komputer";
+Layout = "_Layout";
 }
+
+<h2>@ViewBag.Title</h2>
 
 <form asp-action="Create" method="post">
     <div asp-validation-summary="All"></div>
-
     <div>
         <label asp-for="Name">Nazwa</label>
         <input class="form-control" asp-for="Name" />
@@ -37,6 +38,11 @@
         <label asp-for="ProductionDate">Data produkcji</label>
         <input class="form-control" asp-for="ProductionDate" type="date" />
         <span asp-validation-for="ProductionDate" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Description">Opis</label>
+        <textarea class="form-control" asp-for="Description"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
     </div>
     <div>
         <button type="submit" class="btn btn-primary">Zapisz</button>

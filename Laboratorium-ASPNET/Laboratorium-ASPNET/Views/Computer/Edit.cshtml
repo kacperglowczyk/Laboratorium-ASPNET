@@ -1,59 +1,50 @@
 @model Laboratorium_ASPNET.Models.Computer
 
 @{
-    ViewBag.Title = "title";
-    Layout = "_Layout";
+ViewBag.Title = "Dodaj/Edytuj komputer";
+Layout = "_Layout";
 }
 
-<h2>Edytuj komputer</h2>
+<h2>@ViewBag.Title</h2>
 
 <form asp-action="Edit" method="post">
-    <div asp-validation-summary="All" class="text-danger"></div>
-
-    <input type="hidden" asp-for="Id" />
-
-    <div class="mb-3">
-        <label asp-for="Name" class="form-label">Nazwa</label>
+    <div asp-validation-summary="All"></div>
+    <div>
+        <label asp-for="Name">Nazwa</label>
         <input class="form-control" asp-for="Name" />
         <span asp-validation-for="Name" class="text-danger"></span>
     </div>
-
-    <div class="mb-3">
-        <label asp-for="Processor" class="form-label">Procesor</label>
+    <div>
+        <label asp-for="Processor">Procesor</label>
         <input class="form-control" asp-for="Processor" />
         <span asp-validation-for="Processor" class="text-danger"></span>
     </div>
-
-    <div class="mb-3">
-        <label asp-for="Memory" class="form-label">Pamięć RAM (GB)</label>
+    <div>
+        <label asp-for="Memory">Pamięć RAM (GB)</label>
         <input class="form-control" asp-for="Memory" />
         <span asp-validation-for="Memory" class="text-danger"></span>
     </div>
-
-    <div class="mb-3">
-        <label asp-for="Graphics" class="form-label">Karta graficzna</label>
+    <div>
+        <label asp-for="Graphics">Karta graficzna</label>
         <input class="form-control" asp-for="Graphics" />
         <span asp-validation-for="Graphics" class="text-danger"></span>
     </div>
-
-    <div class="mb-3">
-        <label asp-for="Maker" class="form-label">Producent</label>
+    <div>
+        <label asp-for="Maker">Producent</label>
         <input class="form-control" asp-for="Maker" />
         <span asp-validation-for="Maker" class="text-danger"></span>
     </div>
-
-    <div class="mb-3">
-        <label asp-for="ProductionDate" class="form-label">Data produkcji</label>
+    <div>
+        <label asp-for="ProductionDate">Data produkcji</label>
         <input class="form-control" asp-for="ProductionDate" type="date" />
         <span asp-validation-for="ProductionDate" class="text-danger"></span>
     </div>
-
-    <div class="mb-3">
-        <label asp-for="Description" class="form-label">Opis</label>
+    <div>
+        <label asp-for="Description">Opis</label>
         <textarea class="form-control" asp-for="Description"></textarea>
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
-
-    <button type="submit" class="btn btn-primary">Zapisz</button>
-    <a asp-action="Index" class="btn btn-secondary">Anuluj</a>
+    <div>
+        <button type="submit" class="btn btn-primary">Zapisz</button>
+    </div>
 </form>

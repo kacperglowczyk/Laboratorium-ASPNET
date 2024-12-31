@@ -7,6 +7,7 @@ builder.Services.AddControllersWithViews();
 
 // Lab4 added: Dependency Injection for ContactService
 builder.Services.AddSingleton<IContactService, MemoryContactService>();
+builder.Services.AddSingleton<IComputerService, MemoryComputerService>();
 
 var app = builder.Build();
 

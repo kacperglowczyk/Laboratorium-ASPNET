@@ -1,34 +1,39 @@
-@model Dictionary<int, Laboratorium_ASPNET.Models.Computer>
+@model List<Laboratorium_ASPNET.Models.Computer>
 
 @{
-    ViewBag.Title = "title";
-    Layout = "_Layout";
+ViewBag.Title = "Lista komputerów";
+Layout = "_Layout";
 }
 
-<h2>Lista Komputerów</h2>
+<h2>Lista komputerów</h2>
+
 <table class="table">
     <thead>
     <tr>
         <th>Nazwa</th>
         <th>Procesor</th>
+        <th>Pamięć RAM</th>
+        <th>Karta graficzna</th>
         <th>Producent</th>
-        <th>Akcje</th>
+        <th>Opcje</th>
     </tr>
     </thead>
     <tbody>
-    @foreach (var item in Model)
+    @foreach (var computer in Model)
     {
     <tr>
-        <td>@item.Value.Name</td>
-        <td>@item.Value.Processor</td>
-        <td>@item.Value.Maker</td>
+        <td>@computer.Name</td>
+        <td>@computer.Processor</td>
+        <td>@computer.Memory</td>
+        <td>@computer.Graphics</td>
+        <td>@computer.Maker</td>
         <td>
-            <a asp-action="Edit" asp-route-id="@item.Key" class="btn btn-primary">Edytuj</a>
-            <a asp-action="Details" asp-route-id="@item.Key" class="btn btn-info">Szczegóły</a>
-            <a asp-action="Delete" asp-route-id="@item.Key" class="btn btn-danger">Usuń</a>
+            <a asp-action="Details" asp-route-id="@computer.Id" class="btn btn-info">Szczegóły</a>
+            <a asp-action="Edit" asp-route-id="@computer.Id" class="btn btn-warning">Edytuj</a>
+            <a asp-action="Delete" asp-route-id="@computer.Id" class="btn btn-danger">Usuń</a>
         </td>
     </tr>
     }
     </tbody>
 </table>
-<a asp-action="Create" class="btn btn-success">Dodaj nowy komputer</a>
+<a asp-action="Create" class="btn btn-primary">Dodaj komputer</a>
