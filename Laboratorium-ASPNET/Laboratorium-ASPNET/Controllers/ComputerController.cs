@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Laboratorium_ASPNET.Models;
+using Laboratorium_ASPNET.Interfaces;
 
 namespace Laboratorium_ASPNET.Controllers;
 

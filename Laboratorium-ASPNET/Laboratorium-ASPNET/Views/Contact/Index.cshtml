@@ -1,21 +1,23 @@
 @model IEnumerable<Laboratorium_ASPNET.Models.Contact>
 
-@{
-ViewBag.Title = "Contact List";
+<h1>Lista kontaktów</h1>
+
+@if (Model == null || !Model.Any())
+{
+<div class="alert alert-info" role="alert">
+    Brak kontaktów do wyświetlenia.
+</div>
 }
-
-<h2>Contact List</h2>
-
-<a asp-action="Create" class="btn btn-primary">Add New Contact</a>
-
+else
+{
 <table class="table">
     <thead>
     <tr>
-        <th>Name</th>
+        <th>Imię</th>
         <th>Email</th>
-        <th>Phone</th>
-        <th>Priority</th>
-        <th>Actions</th>
+        <th>Telefon</th>
+        <th>Data Urodzenia</th>
+        <th>Organizacja</th>
     </tr>
     </thead>
     <tbody>
@@ -25,13 +27,10 @@ ViewBag.Title = "Contact List";
         <td>@contact.Name</td>
         <td>@contact.Email</td>
         <td>@contact.Phone</td>
-        <td>@contact.Priority</td>
-        <td>
-            <a asp-action="Details" asp-route-id="@contact.Id" class="btn btn-info">Details</a>
-            <a asp-action="Edit" asp-route-id="@contact.Id" class="btn btn-warning">Edit</a>
-            <a asp-action="Delete" asp-route-id="@contact.Id" class="btn btn-danger">Delete</a>
-        </td>
+        <td>@contact.Birth.ToString("dd.MM.yyyy")</td>
+        <td>@contact.OrganizationName ?? "Brak informacji"</td>
     </tr>
     }
     </tbody>
 </table>
+}

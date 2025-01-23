@@ -1,0 +1,46 @@
+@model WebApp.Models.Movies.MovieCast
+
+@{
+ViewData["Title"] = "Dodaj do obsady";
+}
+
+<h2>Add new person to the cast</h2>
+
+<form asp-action="AddCast" method="post">
+    <input type="hidden" asp-for="MovieId" />
+
+    <div class="mb-3">
+        <label asp-for="CharacterName" class="form-label">Character name</label>
+        <input asp-for="CharacterName" class="form-control" required />
+        <span asp-validation-for="CharacterName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Person.PersonName" class="form-label">Actor's name</label>
+        <input asp-for="Person.PersonName" class="form-control" required />
+        <span asp-validation-for="Person.PersonName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="GenderId" class="form-label">Gender</label>
+        <select asp-for="GenderId" class="form-control">
+            <option value="1">Man</option>
+            <option value="2">Woman</option>
+            <option value="3">Other</option>
+        </select>
+        <span asp-validation-for="GenderId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="CastOrder" class="form-label">Cast order</label>
+        <input asp-for="CastOrder" class="form-control" type="number" required />
+        <span asp-validation-for="CastOrder" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Add to cast</button>
+    <a asp-action="Details" asp-route-id="@Model.MovieId" class="btn btn-secondary">Back</a>
+</form>
+
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+}

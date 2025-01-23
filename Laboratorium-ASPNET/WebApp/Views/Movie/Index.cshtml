@@ -1,0 +1,94 @@
+@model IEnumerable<WebApp.Models.Movies.Movie>
+
+@{
+    ViewData["Title"] = "Movies";
+    int totalPages = ViewBag.TotalPages;
+    int currentPage = ViewBag.CurrentPage;
+    int startPage = Math.Max(1, currentPage - 2);
+    int endPage = Math.Min(totalPages, currentPage + 2);
+}
+
+<h1>Movies</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Title)</th>
+        <th>@Html.DisplayNameFor(model => model.Budget)</th>
+        <th>@Html.DisplayNameFor(model => model.Homepage)</th>
+        <th>@Html.DisplayNameFor(model => model.ReleaseDate)</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Title</td>
+            <td>@(item.Budget.HasValue ? $"{item.Budget:C}" : "brak")</td>
+            <td>@(string.IsNullOrEmpty(item.Homepage) ? "brak" : item.Homepage)</td>
+            <td>@(item.ReleaseDate?.ToString("yyyy-MM-dd") ?? "brak")</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.MovieId">Details</a> |
+                <a asp-action="Edit" asp-route-id="@item.MovieId">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.MovieId">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<!-- Pagination -->
+<nav aria-label="Movie Pagination">
+    <ul class="pagination justify-content-center">
+        <!-- Previous Button -->
+        @if (currentPage > 1)
+        {
+        <li class="page-item">
+            <a class="page-link" asp-action="Index" asp-route-page="@(currentPage - 1)">Previous</a>
+        </li>
+        }
+
+        <!-- First Page and Ellipsis -->
+        @if (startPage > 1)
+        {
+        <li class="page-item">
+            <a class="page-link" asp-action="Index" asp-route-page="1">1</a>
+        </li>
+        <li class="page-item disabled">
+            <span class="page-link">...</span>
+        </li>
+        }
+
+        <!-- Display 5 Pages Around Current Page -->
+        @for (int i = startPage; i <= endPage; i++)
+        {
+        <li class="page-item @(currentPage == i ? "active" : "")">
+            <a class="page-link" asp-action="Index" asp-route-page="@i">@i</a>
+        </li>
+        }
+
+        <!-- Last Page and Ellipsis -->
+        @if (endPage < totalPages)
+        {
+        <li class="page-item disabled">
+            <span class="page-link">...</span>
+        </li>
+        <li class="page-item">
+            <a class="page-link" asp-action="Index" asp-route-page="@totalPages">@totalPages</a>
+        </li>
+        }
+
+        <!-- Next Button -->
+        @if (currentPage < totalPages)
+        {
+        <li class="page-item">
+            <a class="page-link" asp-action="Index" asp-route-page="@(currentPage + 1)">Next</a>
+        </li>
+        }
+    </ul>
+</nav>

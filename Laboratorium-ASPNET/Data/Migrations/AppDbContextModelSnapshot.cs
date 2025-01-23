@@ -57,30 +57,6 @@ namespace Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("computers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "High-end gaming PC.",
-                            Graphics = "NVIDIA RTX 3080",
-                            Maker = "Custom Build",
-                            Memory = 32,
-                            Name = "Gaming PC",
-                            Processor = "Intel Core i9",
-                            ProductionDate = new DateTime(2022, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "Powerful workstation for rendering.",
-                            Graphics = "AMD Radeon Pro",
-                            Maker = "Dell",
-                            Memory = 64,
-                            Name = "Workstation",
-                            Processor = "AMD Ryzen 9",
-                            ProductionDate = new DateTime(2021, 11, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
                 });
 
             modelBuilder.Entity("Data.Entities.ContactEntity", b =>
@@ -90,7 +66,9 @@ namespace Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("Birth")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT")
+                        .HasDefaultValue(new DateTime(2024, 12, 31, 20, 53, 56, 881, DateTimeKind.Local).AddTicks(7560))
                         .HasColumnName("birth_date");
 
                     b.Property<string>("Email")
@@ -103,6 +81,11 @@ namespace Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("OrganizationId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasDefaultValue(101);
+
                     b.Property<string>("Phone")
                         .IsRequired()
                         .HasMaxLength(12)
@@ -110,25 +93,98 @@ namespace Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("OrganizationId");
+
                     b.ToTable("contacts");
+                });
+
+            modelBuilder.Entity("Data.Entities.OrganizationEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Nip")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Regon")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("organizations", (string)null);
 
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            Birth = new DateTime(2000, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "adam.nowak@example.com",
-                            Name = "Adam Nowak",
-                            Phone = "123456789"
+                            Id = 101,
+                            Nip = "83492384",
+                            Regon = "13424234",
+                            Title = "WSEI"
                         },
                         new
                         {
-                            Id = 2,
-                            Birth = new DateTime(1995, 8, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "ewa.kowalska@example.com",
-                            Name = "Ewa Kowalska",
-                            Phone = "987654321"
+                            Id = 102,
+                            Nip = "2498534",
+                            Regon = "0873439249",
+                            Title = "Firma"
                         });
+                });
+
+            modelBuilder.Entity("Data.Entities.ContactEntity", b =>
+                {
+                    b.HasOne("Data.Entities.OrganizationEntity", "Organization")
+                        .WithMany("Contacts")
+                        .HasForeignKey("OrganizationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Organization");
+                });
+
+            modelBuilder.Entity("Data.Entities.OrganizationEntity", b =>
+                {
+                    b.OwnsOne("Data.Entities.Address", "Address", b1 =>
+                        {
+                            b1.Property<int>("OrganizationEntityId")
+                                .HasColumnType("INTEGER");
+
+                            b1.Property<string>("City")
+                                .IsRequired()
+                                .HasColumnType("TEXT");
+
+                            b1.Property<string>("PostalCode")
+                                .IsRequired()
+                                .HasColumnType("TEXT");
+
+                            b1.Property<string>("Region")
+                                .IsRequired()
+                                .HasColumnType("TEXT");
+
+                            b1.Property<string>("Street")
+                                .IsRequired()
+                                .HasColumnType("TEXT");
+
+                            b1.HasKey("OrganizationEntityId");
+
+                            b1.ToTable("organizations");
+
+                            b1.WithOwner()
+                                .HasForeignKey("OrganizationEntityId");
+                        });
+
+                    b.Navigation("Address");
+                });
+
+            modelBuilder.Entity("Data.Entities.OrganizationEntity", b =>
+                {
+                    b.Navigation("Contacts");
                 });
 #pragma warning restore 612, 618
         }
